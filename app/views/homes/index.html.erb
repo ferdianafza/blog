@@ -9,6 +9,10 @@
   box-sizing: border-box;
 }
 
+.pagination {
+  margin-left: 45%;
+}
+
 body {
   background: #f1f1f1;
  /* margin: 2rem;*/
@@ -279,4 +283,4 @@ h1 {
 </div>
 <% end %>
 
-<%= paginate @articles %>
+<%= will_paginate @articles, :class => 'pagination' %>
