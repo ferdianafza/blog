@@ -1,0 +1,64 @@
+<style>
+  .card {
+    margin-left: 500px;
+    margin-top: 100px;
+  }
+    body {
+  background: #f1f1f1;
+ /* margin: 2rem;*/
+}
+.nav-link {
+    color: #979c9c;
+  }
+</style>
+<ul class="nav nav-tabs" style="background-color: #1b1c1c;">
+  <li class="nav-item">
+    <a class="nav-link" href="http://127.0.0.1:3000">Home</a>
+  </li>
+  <% if user_signed_in? %>
+    <li class="nav-item">
+      <a class="nav-link active" href="http://127.0.0.1:3000/articles">My Articles</a>
+    </li>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <li class="nav-item">
+      <%= link_to "My Profile", edit_user_registration_path, :class => 'nav-link' %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link' %>
+    </li>
+  <% end %>
+</ul>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+  </div>
+</div>

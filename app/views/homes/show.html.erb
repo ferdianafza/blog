@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @article.name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @article.content %>
+</p>
+<% unless @article.comments.empty? %>
+
+<h3><%= pluralize(@article.comments.size, 'Comment') %></h3>
+
+<% end %>
+
+
+
+<div id=”comments”>
+
+<% unless @article.comments.empty? %>
+
+<%= render @article.comments %>
+
+<% end %>
+
+</div>

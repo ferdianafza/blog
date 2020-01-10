@@ -1,0 +1,9 @@
+<div class='comment' data-time='<%= comment.created_at.to_i %>'>
+
+<strong><%= comment.user.email %></strong>
+
+<em>on <%= comment.created_at.strftime('%b %d, %Y at %I:%M %p') %></em>
+
+<%= comment.content %>
+
+</div>

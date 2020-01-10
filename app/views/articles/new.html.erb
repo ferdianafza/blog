@@ -1,0 +1,37 @@
+<style>
+    body {
+  background: #f1f1f1;
+ /* margin: 2rem;*/
+}
+.nav-link {
+    color: #979c9c;
+  }
+</style>
+<ul class="nav nav-tabs" style="background-color: #1b1c1c;">
+  <li class="nav-item">
+    <%= link_to "Home", root_path, class: "nav-link" %>
+  </li>
+  <% if user_signed_in? %>
+    <li class="nav-item">
+      <a class="nav-link active" href="/articles">My Articles</a>
+    </li>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <li class="nav-item">
+      <%= link_to "My Profile", edit_user_registration_path, :class => 'nav-link' %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link' %>
+    </li>
+  <% else %>
+    <li class="nav-item">
+      <%= link_to "Login", new_user_session_path, :class => 'nav-link' %>
+    </li>
+  <% end %>
+</ul>
+<h1>New Article</h1>
+
+<%= render 'form', article: @article %>
+
+<%= link_to 'Back', articles_path %>
