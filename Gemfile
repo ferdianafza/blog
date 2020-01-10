@@ -61,5 +61,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "kaminari", "~> 1.1"
 
 gem "activeadmin", "~> 2.6"
-
-gem 'therubyracer'
