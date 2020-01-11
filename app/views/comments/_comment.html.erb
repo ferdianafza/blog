@@ -5,5 +5,10 @@
 <em>on <%= comment.created_at.strftime('%b %d, %Y at %I:%M %p') %></em>
 
 <%= comment.content %>
+ <% if current_user.email == comment.user.email %>
+      <div class="actions">
+      <%= link_to "Delete", [@article, comment] , method: :delete, :remote => true,  data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-outline btn-inverse'  %>
+      </div>
+      <% end %>
 
 </div>
