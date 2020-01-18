@@ -17,4 +17,4 @@ dummy_text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ei
 
 User.all.each do |user|
   user.articles.create!(name: "Article #{user.id}", content: dummy_text)
-end
+endAdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

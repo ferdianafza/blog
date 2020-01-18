@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to article_path(@article)}
         format.js
       else
-        format.html { render :new }
+        format.html { render :new, notice: 'please sign in.' }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end

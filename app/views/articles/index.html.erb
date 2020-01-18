@@ -1,13 +1,322 @@
+<%= stylesheet_link_tag "all" %>
+<%= stylesheet_link_tag "style" %>
+<%= stylesheet_link_tag "slick" %>
+<%= stylesheet_link_tag "animate" %>
 <style>
-  body {
+  .main_menu,.home_menu {
+     box-shadow: 10px 10px 5px grey;
+    }
+  .nav-link {
+    color: #979c9c;
+  }
+  .pertama {
+    border: 3px solid red;
+  }
+  * {
+  box-sizing: border-box;
+}
+
+.pagination {
+  margin-left: 45%;
+}
+
+body {
   background: #f1f1f1;
  /* margin: 2rem;*/
 }
-.nav-link {
-    color: #979c9c;
+
+.button-new-article {
+margin-left: 67%;
+}
+
+h1 {
+  font-family: 'Segoe UI', 'Courier New';
+  font-size: 40px;
+  text-align: center;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  box-shadow: 0 3px 7px -1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.6%;
+  background: #fff;
+  line-height: 1.4;
+  font-family: sans-serif;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.blog-card a {
+  color: inherit;
+}
+
+.blog-card a:hover {
+  color: #5ad67d;
+}
+
+.blog-card:hover .photo {
+  -webkit-transform: scale(1.3) rotate(3deg);
+          transform: scale(1.3) rotate(3deg);
+}
+
+.blog-card .meta {
+  position: relative;
+  z-index: 0;
+  height: 200px;
+}
+
+
+.blog-card .photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /*background-size: cover;
+  background-position: center;*/
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
+}
+
+.blog-card .details,
+.blog-card .details ul {
+  margin: auto;
+  padding: 0;
+  list-style: none;
+}
+
+.blog-card .details {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  margin: auto;
+  transition: left .2s;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 10px;
+  width: 100%;
+  font-size: .9rem;
+}
+
+.blog-card .details a {
+  -webkit-text-decoration: dotted underline;
+          text-decoration: dotted underline;
+}
+
+.blog-card .details ul li {
+  display: inline-block;
+}
+
+.blog-card .details .author:before {
+  font-family: FontAwesome;
+  margin-right: 10px;
+  content: "f007";
+}
+
+.blog-card .details .date:before {
+  font-family: FontAwesome;
+  margin-right: 10px;
+  content: "f133";
+}
+
+.blog-card .details .tags ul:before {
+  font-family: FontAwesome;
+  content: "f02b";
+  margin-right: 10px;
+}
+
+.blog-card .details .tags li {
+  margin-right: 2px;
+}
+
+.blog-card .details .tags li:first-child {
+  margin-left: -4px;
+}
+
+.blog-card .description {
+  padding: 1rem;
+  background: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.blog-card .description h1,
+.blog-card .description h2 {
+  font-family: 'Segoe UI', 'Courier New', sans-serif;
+}
+
+.blog-card .description h1 {
+  line-height: 1;
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+.blog-card .description h2 {
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #a2a2a2;
+  margin-top: 5px;
+}
+
+.blog-card .description .read-more {
+  text-align: right;
+}
+
+.blog-card .description .read-more a {
+  color: #5ad67d;
+  display: inline-block;
+  position: relative;
+}
+
+.blog-card .description .read-more a:after {
+  font-family: FontAwesome;
+  margin-left: -10px;
+  opacity: 0;
+  vertical-align: middle;
+  transition: margin .3s, opacity .3s;
+}
+
+.blog-card .description .read-more a:hover:after {
+  margin-left: 5px;
+  opacity: 1;
+}
+
+.blog-card p {
+  position: relative;
+  margin: 1rem 0 0;
+}
+
+.blog-card p:first-of-type {
+  margin-top: 1.25rem;
+}
+
+.blog-card p:first-of-type:before {
+  content: "";
+  position: absolute;
+  height: 5px;
+  background: #5ad67d;
+  width: 35px;
+  top: -0.75rem;
+  border-radius: 3px;
+}
+
+.blog-card:hover .details {
+  left: 0%;
+}
+
+@media (min-width: 640px) {
+  .blog-card {
+    flex-direction: row;
+    max-width: 700px;
   }
+  .blog-card .meta {
+    flex-basis: 40%;
+    height: auto;
+  }
+  .blog-card .description {
+    flex-basis: 60%;
+  }
+  .blog-card .description:before {
+    -webkit-transform: skewX(-3deg);
+            transform: skewX(-3deg);
+    content: "";
+    background: #fff;
+    width: 30px;
+    position: absolute;
+    left: -10px;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  .blog-card.alt {
+    flex-direction: row-reverse;
+  }
+  .blog-card.alt .description:before {
+    left: inherit;
+    right: -10px;
+    -webkit-transform: skew(3deg);
+            transform: skew(3deg);
+  }
+  .blog-card.alt .details {
+    padding-left: 25px;
+  }
+}
 </style>
-<ul class="nav nav-tabs" style="background-color: #1b1c1c;">
+<header class="main_menu home_menu" id="navbar">
+        <div class="container-fluid">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-11">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="/"> <img src="<%= asset_path('logo2.png') %>" alt="logo"> </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="menu_icon"><i class="fas fa-bars"></i></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">Home</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_1"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        My Articles
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
+                                        <a class="dropdown-item" href="/articles"> Show</a>
+                                        <a class="dropdown-item" href="/articles/new">Create Article</a>
+
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_3"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        My account
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
+                                        <%if user_signed_in?%>
+                                        <a class="dropdown-item" href="/users/edit">Edit Profile</a>
+                                        <% else %>
+                                          <a class="dropdown-item" href="/users/sign_in">
+                                            login
+                                        </a>
+                                        <a class="dropdown-item" href="/users/sign_up">
+                                            Sign up
+                                        </a>
+                                        <% end %>
+                                    </div>
+                                </li>
+                                <%if user_signed_in?%>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/users/sign_out">Logout</a>
+                                </li>
+                                <% end %>
+                            </ul>
+                        </div>
+                        <div class="hearer_icon d-flex">
+                            <div class="dropdown cart">
+                                <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <div class="single_product">
+
+                                    </div>
+                                </div> -->
+                            </div>
+                            <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+<!-- <ul class="nav nav-tabs" style="background-color: #1b1c1c;">
   <li class="nav-item">
     <a class="nav-link" href="http://127.0.0.1:3000">Home</a>
   </li>
@@ -29,12 +338,14 @@
       <%= link_to "Login", new_user_session_path, :class => 'nav-link' %>
     </li>
   <% end %>
-</ul>
+</ul> -->
 <p id="notice"><%= notice %></p>
 
-<h1>Articles</h1>
+<h1>My Articles</h1>
+<button class="button-new-article"><%= link_to 'Create Article', new_article_path %></button>
 
-<table>
+
+<!-- <table>
   <thead>
     <tr>
       <th>Name</th>
@@ -50,13 +361,32 @@
         <td><%= truncate(strip_tags(article.rich_text_content.to_s), length: 50) %></td>
         <td><%= link_to 'Show', article %></td>
         <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <!-- <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+    <!--   </tr>
     <% end %>
   </tbody>
-</table>
+</table> -->
+
+<% @articles.each do |article| %>
+<div class="blog-card">
+  <div class="meta">
+    <div class="photo">
+      <% if article.image.attached? %>
+       <%= image_tag article.image.variant(resize:"280x280") %>
+      <% end %>
+    </div>
+
+  </div>
+  <div class="description">
+    <h1><%= truncate(article.name) %></h1>
+    <p><%= truncate(strip_tags(article.rich_text_content.to_s), length: 50) %></p>
+    <p class="read-more">
+      <%= link_to 'Show', article %>
+      <%= link_to 'Edit', edit_article_path(article) %>
+      <%= link_to 'Read more', article %>
+    </p>
+  </div>
+</div>
+<% end %>
 
 <%= paginate @articles %>
-
-<br>
-<%= link_to 'New Article', new_article_path %>

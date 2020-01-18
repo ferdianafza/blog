@@ -1,13 +1,89 @@
+<%= stylesheet_link_tag "all" %>
+<%= stylesheet_link_tag "style" %>
+<%= stylesheet_link_tag "slick" %>
+<%= stylesheet_link_tag "animate" %>
 <style>
     body {
   background: #f1f1f1;
  /* margin: 2rem;*/
 }
+.main_menu,.home_menu {
+     box-shadow: 10px 10px 5px grey;
+     width: 100%;
+    }
 .nav-link {
     color: #979c9c;
   }
 </style>
-<ul class="nav nav-tabs" style="background-color: #1b1c1c;">
+<header class="main_menu home_menu" id="navbar">
+        <div class="container-fluid">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-11">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="/"> <img src="<%= asset_path('logo2.png') %>" alt="logo"> </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="menu_icon"><i class="fas fa-bars"></i></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">Home</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_1"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        My Articles
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
+                                        <a class="dropdown-item" href="/articles"> Show</a>
+                                        <a class="dropdown-item" href="/articles/new">Create Article</a>
+
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_3"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        My account
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
+                                        <%if user_signed_in?%>
+                                        <a class="dropdown-item" href="/users/edit">Edit Profile</a>
+                                        <% else %>
+                                          <a class="dropdown-item" href="/users/sign_in">
+                                            login
+                                        </a>
+                                        <a class="dropdown-item" href="/users/sign_up">
+                                            Sign up
+                                        </a>
+                                        <% end %>
+                                    </div>
+                                </li>
+                                <%if user_signed_in?%>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/users/sign_out">Logout</a>
+                                </li>
+                                <% end %>
+                            </ul>
+                        </div>
+                        <div class="hearer_icon d-flex">
+                            <div class="dropdown cart">
+                                <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <div class="single_product">
+
+                                    </div>
+                                </div> -->
+                            </div>
+                            <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+<!-- <ul class="nav nav-tabs" style="background-color: #1b1c1c;">
   <li class="nav-item">
     <%= link_to "Home", root_path, class: "nav-link" %>
   </li>
@@ -29,7 +105,8 @@
       <%= link_to "Login", new_user_session_path, :class => 'nav-link' %>
     </li>
   <% end %>
-</ul>
+</ul> -->
+<br>
 <h1>New Article</h1>
 
 <%= render 'form', article: @article %>
