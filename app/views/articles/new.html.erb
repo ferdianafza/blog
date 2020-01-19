@@ -46,7 +46,11 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_3"
                                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        My account
+                                        <%if user_signed_in?%>
+                                        <%= current_user.email %>
+                                        <% else %>
+                                         My account
+                                        <% end %>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
                                         <%if user_signed_in?%>
