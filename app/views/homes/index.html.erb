@@ -311,7 +311,7 @@ h1 {
                                          <%if user_signed_in?%>
                                         <%= current_user.email %>
                                         <% else %>
-                                         My account
+                                         account
                                         <% end %>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
@@ -386,7 +386,7 @@ h1 {
   <% end %>
 <div class="card col <%= temp %>" id="card">
   <% if article.image.attached? %>
-       <%= image_tag article.image.variant(resize:"227x130"), :class => 'thumbnail' %>
+       <%= link_to image_tag(article.image.variant(resize:"227x130")), article, :class => 'thumbnail' %>
       <% end %>
 
   <div class="card-body">
