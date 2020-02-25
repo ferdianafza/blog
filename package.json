@@ -7,11 +7,32 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
+    "node-static": "^0.7.11",
     "trix": "^1.0.0",
     "turbolinks": "^5.2.0"
+  },
+  "scripts": {
+    "start": "node server.js"
   },
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^3.10.1"
-  }
+  },
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "babel.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ferdianafsa/blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ferdianafsa/blog/issues"
+  },
+  "homepage": "https://github.com/ferdianafsa/blog#readme"
 }
