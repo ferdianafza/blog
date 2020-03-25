@@ -17,5 +17,5 @@ module Blog
     # the framework and any gems in your application.
   end
 end
-load_defaults "6.0"
+# load_defaults "6.0"
 Rails.autoloaders.main.ignore("#{Rails.root}/app/overrides")
