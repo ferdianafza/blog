@@ -21,5 +21,6 @@ class Article < ApplicationRecord
 
   has_rich_text :content
 
-  validates :name, :image, :content, presence: true
+  # validates :name, :image, :content, presence: true
+  validates :name, :content, presence: true
 end
